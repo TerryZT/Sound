@@ -1,9 +1,21 @@
 {
-  "name": "sound-mound",
-  "private": true,
+  "name": "@terryzt/sound-mound",
   "version": "1.0.0",
   "description": "Sound Mound - 基于阅读科学的自然拼读学习平台",
   "type": "module",
+  "main": "dist/index.html",
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerryZT/Sound.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
