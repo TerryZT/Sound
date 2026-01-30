@@ -1,0 +1,1266 @@
+/* 导入 Google 字体 */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+/* ========================================
+ * Sound Mound Playground - 全局设计系统 V3.0
+ * 沉浸式多模式支持
+ * ======================================== */
+
+:root {
+  /* 共享语义间距与圆角 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --font-family: 'Fredoka', 'Quicksand', 'Nunito', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 36px;
+  --font-size-display: 64px;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+ * 模式 1: Cosmic Stardust (星际沉浸) 🌌
+ * 真正的深色大气模式
+ * ======================================== */
+.theme-cosmic {
+  --color-primary: #00E5FF;
+  --color-primary-light: rgba(0, 229, 255, 0.2);
+  --color-primary-dark: #00B8D4;
+
+  --color-background: #000C24;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-card: rgba(255, 255, 255, 0.05);
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-hint: rgba(255, 255, 255, 0.4);
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 36px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 72px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 20px rgba(0, 229, 255, 0.3);
+
+  --mound-gradient-start: rgba(0, 229, 255, 0.15);
+  --mound-gradient-end: rgba(170, 0, 255, 0.08);
+  --glass-blur: blur(25px);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --color-success: #00E676;
+  --color-error: #FF5252;
+  --color-warning: #FFD600;
+
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(0, 229, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(170, 0, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 12, 36, 1) 0%, #000510 100%);
+  background-attachment: fixed;
+}
+
+/* ========================================
+ * 模式 2: Classic Light (经典清新) 📖
+ * ======================================== */
+.theme-classic {
+  --color-primary: #1865F2;
+  --color-primary-light: #E3F2FD;
+  --color-primary-dark: #0D47A1;
+
+  --color-background: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-card: #FFFFFF;
+
+  --color-text-primary: #21242C;
+  --color-text-secondary: #6F7581;
+  --color-text-hint: #BABEC7;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 4px 12px rgba(24, 101, 242, 0.15);
+
+  --mound-gradient-start: #E3F2FD;
+  --mound-gradient-end: #BBDEFB;
+  --glass-blur: none;
+  --border-subtle: #E1E4E8;
+
+  --color-success: #0D923F;
+  --color-error: #D92916;
+  --color-warning: #FFB100;
+}
+
+/* ========================================
+ * 模式 3: Magic Garden (魔法花园) 🌿
+ * ======================================== */
+.theme-garden {
+  --color-primary: #2D6A4F;
+  --color-primary-light: #D8F3DC;
+  --color-primary-dark: #1B4332;
+
+  --color-background: #F1F8E9;
+  --color-surface: #FFFFFF;
+  --color-card: #FFFFFF;
+
+  --color-text-primary: #1B4332;
+  --color-text-secondary: #40916C;
+  --color-text-hint: #95D5B2;
+
+  --shadow-sm: 0 2px 8px rgba(45, 106, 79, 0.08);
+  --shadow-md: 0 8px 24px rgba(45, 106, 79, 0.12);
+  --shadow-lg: 0 16px 48px rgba(45, 106, 79, 0.15);
+  --shadow-glow: 0 4px 12px rgba(45, 106, 79, 0.1);
+
+  --mound-gradient-start: #D8F3DC;
+  --mound-gradient-end: #B7E4C7;
+  --glass-blur: none;
+  --border-subtle: #DDE5D7;
+
+  --color-success: #1B4332;
+  --color-error: #BC4749;
+  --color-warning: #F4A261;
+}
+
+/* 全局重置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+ * 修复导航栏布局 (Hotfix)
+ * ======================================== */
+
+.navbar {
+  background: var(--color-surface);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.navbar-logo {
+  font-size: 24px;
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+/* ========================================
+ * 基础 UI 组件: Filter Chip
+ * ======================================== */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-family);
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ========================================
+ * 恢复首页布局与功能卡片 (Hotfix)
+ * ======================================== */
+
+.hero-title {
+  font-size: var(--font-size-display);
+  font-weight: 1000;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.theme-cosmic .hero-title {
+  background: linear-gradient(135deg, #fff 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) 0;
+  width: 100%;
+}
+
+.feature-card {
+  background: var(--color-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  backdrop-filter: var(--glass-blur);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.feature-card.highlight {
+  border: 2px solid var(--color-primary);
+  position: relative;
+}
+
+.new-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--color-error);
+  color: white;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.category-card {
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-card.short-vowels {
+  background: #E3F2FD;
+  border-color: #BBDEFB;
+}
+
+.category-card.long-vowels {
+  background: #FCE4EC;
+  border-color: #F8BBD0;
+}
+
+.category-card.digraphs {
+  background: #F3E5F5;
+  border-color: #E1BEE7;
+}
+
+/* ========================================
+ * 练习模块 适配 (Mapping & TapMap)
+ * ======================================== */
+
+.mapping-practice {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.mapping-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background: var(--color-card);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 30px;
+  margin-bottom: 25px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.mapping-instruction h3 {
+  margin: 0 0 5px;
+  color: var(--color-text-primary);
+}
+
+.mapping-instruction p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+.mapping-progress {
+  margin-bottom: 30px;
+}
+
+.mapping-progress span {
+  font-size: 14px;
+  color: var(--color-text-hint);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.theme-cosmic .progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.mapping-main {
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.mapping-image {
+  width: 160px;
+  height: 160px;
+  background: var(--color-surface);
+  border-radius: 40px;
+  border: 3px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow-sm);
+}
+
+.mapping-image:hover {
+  transform: scale(1.1) rotate(2deg);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.word-emoji {
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mapping-image .word-emoji {
+  font-size: 100px;
+}
+
+.mapping-image .word-image {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.sound-boxes {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.sound-box {
+  width: 80px;
+  height: 80px;
+  border: 2px dashed var(--border-subtle);
+  border-radius: 18px;
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  transition: all 0.2s;
+  color: var(--color-text-primary);
+}
+
+.sound-box.filled {
+  border-style: solid;
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.sound-box.correct {
+  border-color: var(--color-success);
+  background: rgba(0, 230, 118, 0.1);
+}
+
+.sound-box.error {
+  border-color: var(--color-error);
+  background: rgba(255, 23, 68, 0.1);
+}
+
+.sound-box-wrapper.error {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.sound-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  outline: none;
+  text-transform: lowercase;
+}
+
+/* Tap & Map 特有样式 */
+.tap-counter {
+  text-align: center;
+  padding: 40px;
+}
+
+.tap-word {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+}
+
+.tap-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  min-height: 40px;
+}
+
+.tap-dot {
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.theme-cosmic .tap-dot {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tap-dot.tapped {
+  background: var(--color-primary);
+  box-shadow: 0 0 15px var(--color-primary);
+}
+
+.tap-button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  font-size: 48px;
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.1s;
+}
+
+.draggable-cards {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.draggable-card {
+  padding: 15px 25px;
+  background: var(--color-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 15px;
+  font-size: 24px;
+  font-weight: 800;
+  cursor: grab;
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.draggable-card:active {
+  cursor: grabbing;
+}
+
+.feedback-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 40px;
+  border-radius: var(--radius-full);
+  color: white;
+  font-weight: 800;
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+}
+
+.feedback-toast.success {
+  background: var(--color-success);
+}
+
+.feedback-toast.error {
+  background: var(--color-error);
+}
+
+/* ========================================
+ * 通用工具类
+ * ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-lg);
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 16px;
+  transition: all var(--transition-normal);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* 练习模块特化尺寸 */
+.practice-word-img-large {
+  width: 180px;
+  height: 180px;
+  font-size: 110px !important;
+}
+
+.result-word-img {
+  width: 120px;
+  height: 120px;
+  font-size: 80px !important;
+}
+
+.btn-speak-image {
+  margin-top: 15px;
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-speak-image:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.page {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px var(--spacing-lg);
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+/* ========================================
+ * MiniSoundMound 迷你土丘参考图
+ * ======================================== */
+
+.mini-mound-cosmic {
+  width: 240px;
+  height: 150px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.mini-mound-svg {
+  width: 100%;
+  height: 120px;
+}
+
+.mini-mound-phoneme {
+  font-size: 32px;
+  font-weight: 900;
+  fill: var(--color-text-primary);
+}
+
+.theme-cosmic .mini-mound-phoneme {
+  fill: rgba(255, 255, 255, 0.15);
+}
+
+.mini-mound-positions-cosmic {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 10;
+}
+
+.mini-pos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.theme-cosmic .mini-pos {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mini-pos.active {
+  background: var(--color-primary-light);
+  border: 2px solid var(--color-primary);
+}
+
+.theme-cosmic .mini-pos.active {
+  background: rgba(0, 229, 255, 0.2);
+  box-shadow: 0 0 15px var(--color-primary);
+}
+
+.planet-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+}
+
+.planet-dot.red {
+  background: linear-gradient(135deg, #FF4081, #E91E63);
+}
+
+.planet-dot.purple {
+  background: linear-gradient(135deg, #AA00FF, #7C4DFF);
+}
+
+.planet-dot.blue {
+  background: linear-gradient(135deg, #00E5FF, #00B8D4);
+}
+
+.graphemes-box {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mini-g {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ========================================
+ * 首页功能卡片单行布局
+ * ======================================== */
+
+.feature-grid-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  /* 强制单行 */
+  gap: var(--spacing-lg) !important;
+  justify-content: center;
+  max-width: 1400px;
+  margin: var(--spacing-xl) auto;
+  overflow-x: auto;
+  /* 万一太挤允许滚动 */
+  padding: 0 var(--spacing-md);
+}
+
+.feature-grid-row .feature-card {
+  flex: 1;
+  min-width: 220px;
+  /* 减小最小宽度以容纳4个 */
+  max-width: 320px;
+  padding: 30px var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-grid-row .feature-icon {
+  font-size: 64px;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+.feature-grid-row .feature-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.feature-grid-row .feature-card p {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .feature-grid-row {
+    flex-wrap: wrap !important;
+  }
+
+  .feature-grid-row .feature-card {
+    min-width: 45%;
+  }
+}
+
+/* ========================================
+ * 迷你土丘修复 - 增加高度防止遮挡
+ * ======================================== */
+
+.mini-mound-svg {
+  width: 100%;
+  height: 140px;
+  overflow: visible;
+}
+
+/* ========================================
+ * 首页补充：科学拼读引导样式
+ * ======================================== */
+.scientific-phonics-guide {
+  margin: var(--spacing-xxl) auto;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  max-width: 1100px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 1000;
+  margin-bottom: var(--spacing-xxl);
+  color: var(--color-text-primary);
+  opacity: 0.9;
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.guide-step {
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.guide-step:hover {
+  background: var(--color-card);
+  border-color: var(--color-primary);
+  transform: scale(1.02);
+}
+
+.step-num {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+  box-shadow: var(--shadow-glow);
+}
+
+.guide-step h4 {
+  font-size: 20px;
+  margin: 10px 0 15px;
+  color: var(--color-text-primary);
+}
+
+.guide-step p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* 全局按钮细节增强 */
+.btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.nav-link {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+/* ========================================
+ * 细化 PhonemeCard 按钮
+ * ======================================== */
+.btn-speak-small,
+.btn-play-chant,
+.btn-audio-expanded {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%) !important;
+  color: #000 !important;
+  font-weight: 900 !important;
+  border: none !important;
+  box-shadow: var(--shadow-glow) !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.btn-speak-small:hover,
+.btn-play-chant:hover,
+.btn-audio-expanded:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+}
+
+.theme-cosmic .btn-speak-small,
+.theme-cosmic .btn-play-chant,
+.theme-cosmic .btn-audio-expanded {
+  color: #fff !important;
+  box-shadow: 0 0 15px var(--color-primary-light) !important;
+}
+
+.btn-audio-expanded {
+  background: transparent !important;
+  border: 2px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* 隐藏用于修复警告的辅助类 */
+.lint-fix-hidden {
+  display: none;
+}
+
+/* ========================================
+ * 练习图片与声音按钮分离
+ * ======================================== */
+
+.mapping-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mapping-image {
+  width: 120px;
+  height: 120px;
+  background: var(--color-background);
+  border-radius: 24px;
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mapping-image .image-emoji {
+  font-size: 64px;
+}
+
+.btn-speak-image {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s;
+}
+
+.btn-speak-image:hover {
+  transform: translateY(-2px);
+}
+
+/* ========================================
+ * Mapping 练习增强样式
+ * ======================================== */
+
+.mapping-count-step,
+.mapping-fill-step,
+.mapping-result-step {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.step-label {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.step-hint {
+  font-size: 14px;
+  color: var(--color-text-hint);
+}
+
+.count-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.count-display {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--color-primary);
+  min-width: 80px;
+  text-align: center;
+}
+
+.sound-boxes.preview .sound-box.empty {
+  background: rgba(0, 0, 0, 0.03);
+  border-style: dashed;
+}
+
+.theme-cosmic .sound-boxes.preview .sound-box.empty {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.step-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hint-text,
+.error-text {
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.hint-text {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.error-text {
+  background: rgba(255, 23, 68, 0.1);
+  color: var(--color-error);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.hint-bubble {
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.hint-bubble p {
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.hint-bubble ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.hint-bubble li {
+  margin-bottom: 8px;
+  color: var(--color-text-secondary);
+}
+
+.result-icon {
+  font-size: 72px;
+}
+
+.result-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-success);
+  margin: 0;
+}
+
+.result-word {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-text-primary);
+}
+
+.sound-boxes.result .sound-box.correct {
+  background: rgba(0, 230, 118, 0.15);
+  border-color: var(--color-success);
+  border-style: solid;
+}
+
+.result-explanation {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  max-width: 500px;
+}
+
+.theme-cosmic .result-explanation {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.result-explanation p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ========================================
+ * Tap & Map 练习增强样式
+ * ======================================== */
+
+.practice-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.tap-count {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin: 20px 0;
+}
+
+.map-practice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.result-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.btn-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  background: var(--color-surface);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
